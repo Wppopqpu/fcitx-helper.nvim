@@ -39,10 +39,15 @@ function M.get_current_state()
 	error("unreachable")
 end
 
+local function trigger_state_changed()
+	local augroup = require("fcitx-helper.autocmd").augroup
+	vim.api.nvim_exec_autocmds("User", { pattern = "FcitxStateChanged", group = augroup, data = { state = M.get_current_state() } })
+end
 
 --- set current saved state
 ---@param state fcitx-helper.State
 function M.set_current_state(state)
+	trigger_state_changed()
 	local opt = config.save_state_relative_to
 	if opt == "never" then
 		return
