@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 			end
 			return
 		end
-		if mode == "i" or mode == "t" then
+		if vim.tbl_contains({ "i", "c", "t" }, mode) then
 			state.apply_current_state()
 			return
 		end
