@@ -62,6 +62,7 @@ end
 function M.toggle_current_state()
 	if M.get_current_state() == "inactive" then
 		M.set_current_state("active")
+		return
 	end
 	M.set_current_state("inactive")
 end
