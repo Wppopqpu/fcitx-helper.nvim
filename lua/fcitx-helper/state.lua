@@ -34,7 +34,7 @@ function M.get_current_state()
 		return global_state
 	end
 	if opt == "buffer" then
-		return get_buffer_state(vim.get_current_buf())
+		return get_buffer_state(vim.api.nvim_get_current_buf())
 	end
 	error("unreachable")
 end
@@ -52,7 +52,7 @@ function M.set_current_state(state)
 		return
 	end
 	if opt == "buffer" then
-		set_buffer_state(vim.get_current_buf(), state)
+		set_buffer_state(vim.api.nvim_get_current_buf(), state)
 		return
 	end
 	error("unreachable")
