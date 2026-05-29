@@ -2,7 +2,7 @@
 local M = {
 	backend = "fcitx5-remote",
 	inactivate_in_normal = true,
-	save_state_relative_to = "extmark",
+	save_state_relative_to = "buffer",
 }
 
 --- setup config
