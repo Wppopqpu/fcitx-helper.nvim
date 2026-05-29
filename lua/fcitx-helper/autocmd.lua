@@ -9,13 +9,13 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 	group = M.augroup,
 	callback = function (ev)
 		local mode = vim.fn.mode():sub(1, 1)
-		if mode == "n" then
+		if vim.tbl_contains({ "n", "v", "V", "c" }, mode) then
 			if config.inactivate_in_normal then
 				state.apply_state("inactive")
 			end
 			return
 		end
-		if vim.tbl_contains({ "i", "c", "t" }, mode) then
+		if vim.tbl_contains({ "i", "t" }, mode) then
 			state.apply_current_state()
 			return
 		end
