@@ -8,7 +8,8 @@ local M = {
 --- setup config
 ---@param opt fcitx-helper.Opt
 local function setup(opt)
-	M = vim.tbl_deep_extend("force", opt, M)
+	opt = opt or {}
+	M = vim.tbl_deep_extend("force", M, opt)
 end
 
 return setmetatable({}, {
